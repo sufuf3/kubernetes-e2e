@@ -12,5 +12,13 @@ $ docker run -v $HOME/.kube/config:/kubeconfig \
   -focus "\[Conformance\]" -skip "\[Serial\]" /e2e.test
 ```
 
+- With record
+```sh
+$ docker run -v $HOME/.kube/config:/kubeconfig \
+  mikkeloscar/kubernetes-e2e:latest -p \
+  -focus "\[Conformance\]" -skip "\[Serial\]" /e2e.test 2>&1 | tee -a k8s-e2e.log
+
+```
+
 Assuming you have `$HOME/.kube/config` configured for the cluster you want to
 test.
